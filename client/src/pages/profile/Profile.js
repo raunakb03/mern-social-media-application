@@ -12,10 +12,27 @@ function Profile() {
       <div className="profile">
         <Sidebar />
         <div className="profileRight">
-          <div className="profileRightTop"></div>
+          <div className="profileRightTop">
+            <div className="profileCover">
+              <img
+                className="profileCoverImg"
+                src="./assets/post/3.jpeg"
+                alt=""
+              />
+              <img
+                className="profileUserImg"
+                src="./assets/person/7.jpeg"
+                alt=""
+              />
+            </div>
+            <div className="profileInfo">
+                <h1 className="profileInfoName">Safak Kocaoglu</h1>
+                <h1 className="profileInfoDesc">Hello my friends</h1>
+            </div>
+          </div>
           <div className="profileRightBottom">
             <Feed />
-            <Rightbar />
+            <Rightbar profile/>
           </div>
         </div>
       </div>
