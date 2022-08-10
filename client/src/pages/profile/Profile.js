@@ -26,13 +26,13 @@ function Profile() {
               />
             </div>
             <div className="profileInfo">
-                <h1 className="profileInfoName">Safak Kocaoglu</h1>
-                <h1 className="profileInfoDesc">Hello my friends</h1>
+              <h1 className="profileInfoName">Safak Kocaoglu</h1>
+              <h1 className="profileInfoDesc">Hello my friends</h1>
             </div>
           </div>
           <div className="profileRightBottom">
             <Feed />
-            <Rightbar profile/>
+            <Rightbar profile />
           </div>
         </div>
       </div>

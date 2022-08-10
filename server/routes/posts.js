@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Post = require("../models/Post");
+const User = require("../models/User");
 
 // @ Route   POST api/posts
 // @ desc    create a post
@@ -71,27 +72,29 @@ router.put("/:id/like", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
-    res.status(200).json(post);
+    res.status(200).json({ post });
   } catch (error) {
     res.status(500).json({ msg: "server error" });
   }
 });
 
-// @ Route   GET api/posts/timeline/all
+// @ Route   GET api/posts/timeline/:userId
 // @ desc    get all post and friend's posts
-router.get("/timeline/all", async (req, res) => {
-  let postArray = [];
+router.get("/timeline/:userId", async (req, res) => {
   try {
-    const currentUser = await User.findById(req.body.userId);
+    const currentUser = await User.findById(req.params.userId);
     const userPosts = await Post.find({ userId: currentUser._id });
+
     const friendPosts = await Promise.all(
       currentUser.following.map((friendId) => {
         return Post.find({ userId: friendId });
       })
     );
+    
     res.json(userPosts.concat(...friendPosts));
-  } catch (error) {
-    res.status(500).json({ msg: "server error" });
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
+
 module.exports = router;
