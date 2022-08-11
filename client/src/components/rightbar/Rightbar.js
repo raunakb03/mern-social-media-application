@@ -3,11 +3,11 @@ import "./rightbar.css";
 import { Users } from "../../dummyData";
 import Online from "../online/Online";
 
-function Rightbar({ profile }) {
-
-  const HomeRightBar= () => {
-    return <>
-    <div className="birthdayContainer">
+function Rightbar({ user }) {
+  const HomeRightBar = () => {
+    return (
+      <>
+        <div className="birthdayContainer">
           <img src="./assets/gift.png" alt="" className="birthdayImg" />
           <span className="birthdayText">
             <b>Pola Foster </b> and <b> 3 other friends </b> have birthday
@@ -21,8 +21,9 @@ function Rightbar({ profile }) {
             <Online key={u.id} user={u} />
           ))}
         </ul>
-    </>
-  }
+      </>
+    );
+  };
 
   const ProfileRightbar = () => {
     return (
@@ -31,15 +32,21 @@ function Rightbar({ profile }) {
         <div className="rightbarInfo">
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">City:</span>
-            <span className="rightbarInfoValue">New York</span>
+            <span className="rightbarInfoValue">{user.city}</span>
           </div>
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">From:</span>
-            <span className="rightbarInfoValue">Madrid</span>
+            <span className="rightbarInfoValue">{user.from}</span>
           </div>
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">Relationship:</span>
-            <span className="rightbarInfoValue">Single</span>
+            <span className="rightbarInfoValue">
+              {user.relationship == 1
+                ? "Single"
+                : user.relationship == 2
+                ? "Married"
+                : "-"}
+            </span>
           </div>
         </div>
         <h4 className="rightbarTitle">User friends</h4>
@@ -96,11 +103,11 @@ function Rightbar({ profile }) {
       </>
     );
   };
-  
+
   return (
     <div className="rightbar">
       <div className="rightbarWrapper">
-        { profile ? <ProfileRightbar/> : <HomeRightBar/>}
+        {user ? <ProfileRightbar /> : <HomeRightBar />}
       </div>
     </div>
   );
