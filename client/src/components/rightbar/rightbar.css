@@ -1,10 +1,5 @@
 .rightbar {
   flex: 3.5;
-  /* added */
-  height: calc(100vh - 50px);
-  overflow-y: scroll;
-  position: sticky;
-  top: 50px;
 }
 
 .rightbarWrapper {
@@ -41,39 +36,6 @@
   padding: 0;
   margin: 0;
   list-style: none;
-}
-
-.rightbarFriend{
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.rightbarProfileImgContainer{
-    margin-right: 10px;
-    position: relative;
-}
-
-.rightbarProfileImg{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.rightbarOnline{
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: limegreen;
-    position: absolute;
-    top: -2px;
-    right: 0;
-    border: 2px solid white;
-}
-
-.rightbarUsername{
-    font-weight: 500;
 }
 
 .rightbarTitle{
@@ -118,4 +80,23 @@
   height: 100px;
   object-fit: cover;
   border-radius: 5px;
+}
+
+.rightbarFollowButton{
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border: none;
+  background-color: #1872f2;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.rightbarFollowButton:focus{
+  outline: none;
 }
